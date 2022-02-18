@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<% @article.photos.each do |photo| %>
+  <% if photo.key %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
+      <%= @article.title %>
+    </div>
+  <% else %>
+    <h1>No picture</h1>
+  <% end %>
+<% end %>
 
 <p>
   <strong>Body:</strong>
